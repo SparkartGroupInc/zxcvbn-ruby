@@ -1,4 +1,5 @@
 require 'benchmark'
+require 'zxcvbn/feedback'
 require 'zxcvbn/omnimatch'
 require 'zxcvbn/scorer'
 
@@ -17,6 +18,7 @@ module Zxcvbn
         result = @scorer.minimum_entropy_match_sequence(password, matches)
       end
       result.calc_time = calc_time
+      result.feedback = Feedback.new(result)
       result
     end
   end

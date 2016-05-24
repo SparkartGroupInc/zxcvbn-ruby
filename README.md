@@ -19,9 +19,9 @@ $ irb
 >> require 'zxcvbn'
 => true
 >> Zxcvbn.test('@lfred2004', ['alfred'])
-=> #<Zxcvbn::Score:0x007fd467803098 @entropy=7.895, @crack_time=0.012, @crack_time_display="instant", @score=0, @match_sequence=[#<Zxcvbn::Match matched_word="alfred", token="@lfred", i=0, j=5, rank=1, pattern="dictionary", dictionary_name="user_inputs", l33t=true, sub={"@"=>"a"}, sub_display"@ -> a", base_entropy0.0, uppercase_entropy0.0, l33t_entropy1, entropy1.0, #<Zxcvbn::Match i=6, j=9, token="2004", pattern="year", entropy=6.894817763307944], @password="@lfred2004", @calc_time=0.003436>
+=> #<Zxcvbn::Score:0x007fd4689c1168 @entropy=7.895, @crack_time=0.012, @crack_time_display="instant", @score=0, @match_sequence=[#<Zxcvbn::Match matched_word="alfred", token="@lfred", i=0, j=5, rank=1, pattern="dictionary", dictionary_name="user_inputs", l33t=true, sub={"@"=>"a"}, sub_display="@ -> a", base_entropy=0.0, uppercase_entropy=0.0, l33t_entropy=1, entropy=1.0>, #<Zxcvbn::Match i=6, j=9, token="2004", pattern="year", entropy=6.894817763307944>], @password="@lfred2004", @calc_time=0.004505935998167843, @feedback={:warning=>nil, :suggestions=>["Add another word or two. Uncommon words are better.", "Predictable substitutions like '@' instead of 'a' don't help very much"]}>
 >> Zxcvbn.test('asdfghju7654rewq', ['alfred'])
-=> #<Zxcvbn::Score:0x007fd4689c1168 @entropy=29.782, @crack_time=46159.451, @crack_time_display="14 hours", @score=2, @match_sequence=[#<Zxcvbn::Match pattern="spatial", i=0, j=15, token="asdfghju7654rewq", graph="qwerty", turns=5, shifted_count=0, entropy=29.7820508329166>], password"asdfghju7654rewq", calc_time0.00526
+=> #<Zxcvbn::Score:0x007fd4689c1168  @entropy=29.782, @crack_time=46159.451, @crack_time_display="14 hours", @score=2, @match_sequence=[#<Zxcvbn::Match pattern="spatial", i=0, j=15, token="asdfghju7654rewq", graph="qwerty", turns=5, shifted_count=0, entropy=29.7820508329166>], @password="asdfghju7654rewq", @calc_time=0.01330714300274849, @feedback={:warning=>"", :suggestions=>["Add another word or two. Uncommon words are better."]}>
 ```
 
 ## Testing Multiple Passwords
@@ -35,9 +35,9 @@ $ irb
 >> tester = Zxcvbn::Tester.new
 => #<Zxcvbn::Tester:0x3fe99d869aa4>
 >> tester.test('@lfred2004', ['alfred'])
-=> #<Zxcvbn::Score:0x007fd4689c1168 @entropy=29.782, @crack_time=46159.451, @crack_time_display="14 hours", @score=2, @match_sequence=[#<Zxcvbn::Match pattern="spatial", i=0, j=15, token="asdfghju7654rewq", graph="qwerty", turns=5, shifted_count=0, entropy=29.7820508329166>], password"asdfghju7654rewq", calc_time0.00526
+=> #<Zxcvbn::Score:0x007fd4689c1168 @entropy=7.895, @crack_time=0.012, @crack_time_display="instant", @score=0, @match_sequence=[#<Zxcvbn::Match matched_word="alfred", token="@lfred", i=0, j=5, rank=1, pattern="dictionary", dictionary_name="user_inputs", l33t=true, sub={"@"=>"a"}, sub_display="@ -> a", base_entropy=0.0, uppercase_entropy=0.0, l33t_entropy=1, entropy=1.0>, #<Zxcvbn::Match i=6, j=9, token="2004", pattern="year", entropy=6.894817763307944>], @password="@lfred2004", @calc_time=0.005105850999825634, @feedback={:warning=>nil, :suggestions=>["Add another word or two. Uncommon words are better.", "Predictable substitutions like '@' instead of 'a' don't help very much"]}>
 >> tester.test('@lfred2004', ['alfred'])
-=> #<Zxcvbn::Score:0x007fd4689c1168 @entropy=29.782, @crack_time=46159.451, @crack_time_display="14 hours", @score=2, @match_sequence=[#<Zxcvbn::Match pattern="spatial", i=0, j=15, token="asdfghju7654rewq", graph="qwerty", turns=5, shifted_count=0, entropy=29.7820508329166>], password"asdfghju7654rewq", calc_time0.00526
+=> #<Zxcvbn::Score:0x007fd4689c1168 @entropy=7.895, @crack_time=0.012, @crack_time_display="instant", @score=0, @match_sequence=[#<Zxcvbn::Match matched_word="alfred", token="@lfred", i=0, j=5, rank=1, pattern="dictionary", dictionary_name="user_inputs", l33t=true, sub={"@"=>"a"}, sub_display="@ -> a", base_entropy=0.0, uppercase_entropy=0.0, l33t_entropy=1, entropy=1.0>, #<Zxcvbn::Match i=6, j=9, token="2004", pattern="year", entropy=6.894817763307944>], @password="@lfred2004", @calc_time=0.005340506992070004, @feedback={:warning=>nil, :suggestions=>["Add another word or two. Uncommon words are better.", "Predictable substitutions like '@' instead of 'a' don't help very much"]}> 
 ```
 
 **Note**: Storing the entropy of an encrypted or hashed value provides
